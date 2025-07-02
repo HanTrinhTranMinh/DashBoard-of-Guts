@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  min-height: 100vh;
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo h1 {
+  font-size: 24px;
+  color: #4fc3f7;
+  margin-bottom: 5px;
+}
+
+.logo p {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.nav-menu {
+  list-style: none;
+}
+
+.nav-item {
+  margin-bottom: 10px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: rgba(79, 195, 247, 0.2);
+  transform: translateX(5px);
+}
+
+.nav-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-title {
+  font-size: 32px;
+  margin-bottom: 10px;
+  background: linear-gradient(45deg, #4fc3f7, #29b6f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-subtitle {
+  opacity: 0.8;
+  font-size: 16px;
+}
+
+.chart-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.sensor-table {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.sensor-table th,
+.sensor-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sensor-table th {
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+}
+
+.sensor-table tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.timestamp {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  z-index: 1000;
+}
