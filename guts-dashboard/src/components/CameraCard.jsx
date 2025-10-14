@@ -7,17 +7,17 @@ function CameraCard({camera}) {
           <span className="camera-title">{camera.deviceid}</span>
           <div className="camera-status">
               <span className="status-dot"></span>
-              <span>Trực tuyến</span>
+              <span>Online</span>
           </div>
         </div>
         <div className="camera-image-pair">
           <div className="camera-image-block">
-              <img src={camera.imageUrl} alt="Ảnh hiện tại" />
-              <p className="image-label">Ảnh hiện tại</p>
+              <img src={`${camera.imageUrl}?t=${Date.now()}`} alt="Current Image" />
+              <p className="image-label">Latest Image</p>
           </div>
           <div className="camera-image-block">
-              <img src={camera.imageUrl} alt="Ảnh cảnh báo" />
-              <p className="image-label">Ảnh cảnh báo</p>
+              <img src={`${camera.anomalyImageUrl}?t=${Date.now()}`} alt="Warning Image" />
+              <p className="image-label">Latest Warning Image</p>
           </div>
         </div>
     </div>

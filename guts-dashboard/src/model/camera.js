@@ -5,6 +5,7 @@ export class CameraModel {
     deviceid = '',
     captureAt = null,
     imageUrl = '',
+    anomalyImageUrl = '',
     fileName = '',
     processStatus = null,
     confident = 0.0,
@@ -14,19 +15,20 @@ export class CameraModel {
     this.deviceid = deviceid;
     this.captureAt = captureAt;
     this.imageUrl = imageUrl;
+    this.anomalyImageUrl = anomalyImageUrl;
     this.fileName = fileName;
     this.processStatus = processStatus;
     this.confident = confident;
     this.isAnomaly = isAnomaly;
   }
 
-  // Ví dụ: bạn có thể thêm hàm xử lý logic ở đây
+  // Example: you can add logic handling functions here
   isHighConfidence() {
     return this.confident >= 0.8;
   }
 
   getDisplayStatus() {
-    return this.isAnomaly ? 'Cảnh báo' : 'Bình thường';
+    return this.isAnomaly ? 'Warning' : 'Normal';
   }
 }
 

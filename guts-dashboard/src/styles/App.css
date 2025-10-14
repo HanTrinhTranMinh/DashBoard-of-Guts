@@ -6,8 +6,8 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
+    background: #fff;
+    color: #222;
     min-height: 100vh;
 }
 
@@ -20,6 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background: #e8f5e9;
 }
 
 .logout-container {
@@ -30,18 +31,21 @@ body {
     text-align: center;
     margin-bottom: 30px;
     padding: 20px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #c8e6c9;
+    background: #fff;
+    margin-top: 50px;
 }
 
 .logo h1 {
     font-size: 24px;
-    color: #4fc3f7;
+    color: #43a047;
     margin-bottom: 5px;
 }
 
 .logo p {
     font-size: 12px;
     opacity: 0.7;
+    color: #388e3c;
 }
 
 .nav-menu, .nav-menu li {
@@ -57,19 +61,21 @@ body {
     align-items: center;
     padding: 15px 20px;
     text-decoration: none;
-    color: white;
+    color: #222;
     border-radius: 10px;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .nav-link:hover {
-    background: rgba(79, 195, 247, 0.2);
+    background: #c8e6c9;
+    color: #388e3c;
     transform: translateX(5px);
 }
 
 .nav-link.active {
-    background: rgba(79, 195, 247, 0.3);
+    background: #a5d6a7;
+    color: #1b5e20;
     transform: translateX(5px);
 }
 
@@ -79,7 +85,7 @@ body {
     padding: 15px 20px 15px 40px;
     margin-left: 20px;
     text-decoration: none;
-    color: white;
+    color: #222;
     border-radius: 10px;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -87,18 +93,21 @@ body {
 }
 
 .nav-link-child:hover {
-    background: rgba(79, 195, 247, 0.2);
+    background: #c8e6c9;
+    color: #388e3c;
     transform: translateX(5px);
 }
 
 .nav-link-child.active {
-    background: rgba(79, 195, 247, 0.3);
+    background: #a5d6a7;
+    color: #1b5e20;
     transform: translateX(5px);
 }
 
 .nav-icon {
     margin-right: 10px;
     font-size: 18px;
+    color: #43a047;
 }
 
 .main-content {
@@ -106,23 +115,28 @@ body {
     padding: 30px;
     width: 100%;
     max-width: 100%;
-    display: block; /* Không cần center nếu muốn trải ngang */
+    display: block;
+    height: 100vh;
+    overflow-y: auto;
+    background: #fafafa;
 }
 
 .welcome-section {
     text-align: center;
-    background: rgba(255, 255, 255, 0.1);
+    background: #e8f5e9;
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 60px 40px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #c8e6c9;
     max-width: 600px;
+    color: #222;
 }
 
 .welcome-title {
     font-size: 48px;
     margin-bottom: 20px;
-    background: linear-gradient(45deg, #4fc3f7, #29b6f6);
+    background: linear-gradient(45deg, #43a047, #81c784);
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -131,6 +145,7 @@ body {
     opacity: 0.8;
     margin-bottom: 30px;
     line-height: 1.6;
+    color: #388e3c;
 }
 
 .feature-grid {
@@ -141,32 +156,38 @@ body {
 }
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: #f1f8e9;
     padding: 20px;
     border-radius: 15px;
     text-align: center;
     transition: transform 0.3s ease;
+    border: 1px solid #c8e6c9;
+    color: #222;
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
+    background: #c8e6c9;
 }
 
 .feature-icon {
     font-size: 30px;
     margin-bottom: 10px;
+    color: #43a047;
 }
 
 .feature-title {
     font-size: 14px;
     font-weight: 600;
+    color: #388e3c;
 }
 
 .timestamp {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: rgba(0, 0, 0, 0.3);
+    background: #c8e6c9;
+    color: #222;
     padding: 10px 15px;
     border-radius: 10px;
     font-size: 14px;
@@ -177,7 +198,8 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(0, 0, 0, 0.3);
+    background: #c8e6c9;
+    color: #222;
     padding: 10px 15px;
     border-radius: 10px;
     font-size: 12px;
@@ -220,4 +242,97 @@ body {
 .logout-link:hover {
   background: rgba(255, 82, 82, 0.2);
   transform: translateX(5px);
+}
+
+/* Nút toggle sidebar */
+.sidebar-toggle {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  z-index: 1100;
+  background: #43a047;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-toggle:hover {
+  background: #388e3c;
+  transform: scale(1.05);
+}
+
+.sidebar-toggle.open {
+  background: #ff5252;
+}
+
+/* Sidebar có hiệu ứng sliding */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 250px;
+  background: #e8f5e9;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: all 0.4s ease;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+  box-shadow: none;
+}
+
+/* Khi sidebar đóng, đẩy main-content sang phải ít hơn */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  margin: 20px;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fafafa;
+  transition: all 0.4s ease;
+  margin-left: 250px;
+}
+
+.sidebar.closed + .main-content {
+  margin-left: 0;
+}
+
+/* Cập nhật hiệu ứng icon và text khi sidebar đóng */
+.sidebar.closed .nav-link span,
+.sidebar.closed .logo p,
+.sidebar.closed .logo h1 {
+  display: none;
+}
+
+.sidebar.closed .nav-link {
+  justify-content: center;
+}
+
+.sidebar.closed .nav-icon {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .sidebar.closed {
+    transform: translateX(-100%);
+  }
 }

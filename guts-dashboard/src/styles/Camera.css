@@ -12,26 +12,183 @@
 }
 
 .camera-image-block img {
-  width: 100%;
-  height: auto;
+  width: 50%;               /* giảm từ 100% xuống 85% */
+  height: auto;             /* tự điều chỉnh theo tỷ lệ */
+  max-height: 460px;        /* giảm chiều cao */
   border-radius: 12px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid #a5d6a7;
   object-fit: cover;
+  background: #f1f8e9;
+  transition: all 0.3s ease;
 }
+
+
 
 .image-label {
   margin-top: 10px;
   font-size: 16px;
-  color: #fff;
+  color: #388e3c;
   opacity: 0.85;
 }
+
 .camera-feed {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
+  background: #e8f5e9;
   margin-bottom: 20px;
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 20px;
-  border: 2px solid #4fc3f7; /* Viền xanh dương rõ nét */
-  box-shadow: 0 0 10px rgba(79, 195, 247, 0.3); /* Bóng nhẹ */
+  border: 2px solid #43a047; /* Viền xanh lá rõ nét */
+  box-shadow: 0 0 10px #a5d6a7; /* Bóng nhẹ xanh lá */
+  height: 573.15px;
+}
+
+/* === Responsive cho Camera layout === */
+
+/* Khi sidebar mở, main-content đã có margin-left nên ảnh tự căn giữa */
+.camera-image-pair {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Ảnh giữ tỷ lệ hợp lý */
+.camera-image-block img {
+  width: 75%;
+  height: auto;
+  max-height: 430px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #a5d6a7;
+  background: #f1f8e9;
+  transition: all 0.3s ease;
+}
+
+/* Trên desktop (sidebar mở hoặc đóng) */
+@media (min-width: 1025px) {
+  .camera-image-pair {
+    flex-direction: row;
+  }
+
+  .camera-image-block {
+    flex: 1;
+    min-width: 45%;
+  }
+
+  .camera-feed {
+    height: auto;
+  }
+}
+
+/* Tablet ngang: chia 2 ảnh xuống hàng khi sidebar thu gọn */
+@media (max-width: 1024px) {
+  .camera-image-pair {
+    flex-wrap: wrap;
+
+  }
+
+  .camera-image-block {
+    flex: 1 1 48%;
+  }
+
+  .camera-image-block img {
+    max-height: 400px;
+  }
+
+  .camera-feed {
+    height: auto;
+    padding: 15px;
+  }
+}
+
+/* Tablet dọc hoặc mobile lớn */
+@media (max-width: 768px) {
+  .camera-image-pair {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .camera-image-block {
+    width: 100%;
+  }
+
+  .camera-image-block img {
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+  }
+
+  .camera-feed {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px #a5d6a7;
+  }
+}
+
+/* Mobile nhỏ */
+@media (max-width: 480px) {
+  .camera-image-pair {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .camera-image-block {
+    width: 100%;
+  }
+
+  .camera-image-block img {
+    width: 100%;
+    height: auto;
+    max-height: 320px;
+  }
+
+  .image-label {
+    font-size: 14px;
+  }
+}
+
+/* === Overlay chữ trên ảnh camera === */
+.image-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  z-index: 10;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Vị trí và bố cục của ảnh */
+.camera-image-block {
+  position: relative;
+  flex: 1;
+  text-align: center;
+}
+
+/* Hai kiểu trạng thái khác nhau */
+.image-overlay.normal {
+  color: #00e676;                /* xanh lá tươi */
+  background: rgba(0, 0, 0, 0.25); /* nền mờ giúp chữ nổi hơn */
+}
+
+.image-overlay.leak {
+  color: #ffeb3b;                 /* vàng sáng */
+  background: rgba(0, 0, 0, 0.35); /* nền mờ đậm hơn chút */
+  animation: blink 1.2s infinite alternate; /* nhấp nháy cảnh báo nhẹ */
+}
+
+/* Animation cảnh báo leak */
+@keyframes blink {
+  from { opacity: 1; }
+  to { opacity: 0.6; }
 }
