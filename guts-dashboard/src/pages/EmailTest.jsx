@@ -1,30 +1,48 @@
 import React from "react";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
 function EmailTest() {
-  const testSend = () => {
-    const templateParams = {
+
+  const testSend = async () => {
+    const params = {
       deviceId: "TEST_SENSOR",
       ppm: 4500,
-      alert: "Leak Detected",
+      alert: "🔥 Leak Detected",
       timestamp: new Date().toLocaleString(),
     };
 
-    emailjs
-      .send(
-        "service_e9kvyym",     // ← thay bằng Service ID thật
-        "template_23725ig",    // ← template bạn tạo
-        templateParams,
-        "5adeR-9Cpkn0pVyGf"      // ← Public Key trong Account → API Keys
-      )
-      .then(() => alert("✅ Email sent successfully!"))
-      .catch((err) => alert("❌ Error: " + err.text));
+    try {
+      const res = await emailjs.send(
+        "service_e0iz1bd",     // ✔ Service ID của bạn
+        "template_dv68cq7",    // ✔ Template ID của bạn
+        params,
+        "armCp4DkEYj6ncEkx"    // ✔ Public Key (API Key)
+      );
+
+      console.log("EmailJS Response:", res);
+      alert("✅ Email sent successfully!");
+
+    } catch (err) {
+      console.error("EmailJS Error:", err);
+      alert("❌ Failed to send email");
+    }
   };
 
   return (
     <div style={{ textAlign: "center", marginTop: 50 }}>
-      <h2>Test EmailJS</h2>
-      <button onClick={testSend} style={{ padding: 10, fontSize: 16 }}>
+      <h2 style={{ color: "#2c3e50" }}>Test EmailJS</h2>
+      <button
+        onClick={testSend}
+        style={{
+          padding: "12px 25px",
+          fontSize: 16,
+          backgroundColor: "#27ae60",
+          border: "none",
+          borderRadius: "8px",
+          color: "white",
+          cursor: "pointer",
+        }}
+      >
         Send Test Email
       </button>
     </div>

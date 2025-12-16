@@ -192,3 +192,46 @@
   from { opacity: 1; }
   to { opacity: 0.6; }
 }
+
+
+/* === Kết thúc Camera.css === */
+.log-section {
+  margin-top: 40px;
+}
+
+.log-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.log-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f3f3f3;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.log-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.log-info {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: red;
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+}
